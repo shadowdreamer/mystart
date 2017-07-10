@@ -1,0 +1,40 @@
+/* 网页基础色 #660066*/
+  @font-face {
+    font-family: 'SiyuanHei';
+    src: url('../font/siyuan.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+	font-family: 'bgothm';
+    src: url('../font/bgothm.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+html {
+  font-size: 18px; /* px 意为“像素（pixels）”: 这个基础字体的尺寸现在是10像素  */
+  font-family: 'bgothm', sans-serif,'SiyuanHei';
+  background-color: rgb(209,221,239);
+}
+body {
+  width: 800px;
+  margin: 0 auto;
+  background-color: rgb(156,221,239);
+  padding: 0 20px 20px 20px;
+  border: 5px solid rgb(120,212,290);
+}
+h1 {
+  margin: 0 auto;
+  display: block;
+  padding: 20px 0;    
+  color: #00539F;
+  text-shadow: 1px 1px 3px black;
+}
+
+p{
+	color: #660066;
+}
+
+img {
+	  display: block;
+	  margin: 0 auto;
+	}

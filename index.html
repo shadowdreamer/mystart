@@ -17,11 +17,9 @@
 		</p>
         
         <img id="face" onclick="changeFace()"  alt="表情" src="img/face1.gif">
-		<p><<--click this!</p>
         <br/>
         <button type="button" onclick="changeTittle()">点我！</button>
-        <script src="js/main.js"></script>
-
+        
         <hr/>        
         <form>
         N1:<br>
@@ -32,6 +30,21 @@
         </form>
         <button type="button" onclick="multi()">N1×N2</button>
         <p id="S1">xx</p>
+        
+        <hr/> 
+        <p> 猜一个0~100的随机数</p>
+        <div class="form">
+        <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
+        <input type="submit" value="Submit guess" class="guessSubmit">
+        </div>
+        <div class="resultParas">
+        <p class="guesses"></p>
+        <p class="lastResult"></p>
+        <p class="lowOrHi"></p>
+        </div>
 
+        
+
+        <script src="js/main.js"></script>
 	</body>
 </html>

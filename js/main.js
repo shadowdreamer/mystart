@@ -38,6 +38,8 @@ var guessField = document.querySelector('.guessField');
 
 var guessCount = 1;
 var resetButton;
+var a=1;
+var n=0;
 
 function checkGuess() {
    var userGuess = Number(guessField.value);
@@ -78,11 +80,11 @@ function setGameOver() {
   resetButton.textContent = '新一轮';
   document.body.appendChild(resetButton);
   resetButton.addEventListener('click', resetGame);
- n=0
-}
+ }
 
 function resetGame() {
   guessCount = 1;
+  n=0;
 
   var resetParas = document.querySelectorAll('.resultParas p');
   for (var i = 0 ; i < resetParas.length ; i++) {
@@ -139,8 +141,7 @@ function currentDate(){
     return currentdate;
     }
 
-    var a=1
-    var n=0
+
 function showDate(){
     var b=currentDate();
     var x=document.getElementById("dateB");

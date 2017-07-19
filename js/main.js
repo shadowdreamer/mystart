@@ -78,6 +78,7 @@ function setGameOver() {
   resetButton.textContent = '新一轮';
   document.body.appendChild(resetButton);
   resetButton.addEventListener('click', resetGame);
+ n=0
 }
 
 function resetGame() {

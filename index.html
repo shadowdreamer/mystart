@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>my start</title>
-        <link href="css/start.css" rel="stylesheet" type="text/css">        
+        <link href="css/start.css" rel="stylesheet" type="text/css"> 
+          
   	<body>
 		<p>            
 		<h1 id="tittle">常用</h1>
@@ -23,28 +24,30 @@
         <hr/>        
         <form>
         N1:<br>
-        <input type="number" name="N1">
+        <input type="number" id="N1">
         <br>
         N2:<br>
-        <input type="number" name="N2">
+        <input type="number" id="N2">
         </form>
-        <button type="button" onclick="multi()">N1×N2</button>
-        <p id="S1">xx</p>
+        <button type="button" onclick="multi1()">N1×N2</button>
+        <p>乘积为：</p>
+        <p id="s1">xx</p>
         
         <hr/> 
-        <p> 猜一个0~100的随机数，最多猜10次</p>
+        <p> 猜一个0~100的随机数</p>
         <div class="form">
-        <label for="guessField">猜一个数字: </label><input type="text" id="guessField" class="guessField">
-        <input type="submit" value="Submit guess" class="guessSubmit">
+            <label for="guessField">猜一个数字: </label><input type="text" id="guessField" class="guessField">
+            <input type="submit" value="Submit guess" class="guessSubmit">
+            </div>
+            <div class="resultParas">
+            <p class="guesses"></p>
+            <p class="lastResult"></p>
+            <p class="lowOrHi"></p>
         </div>
-        <div class="resultParas">
-        <p class="guesses"></p>
-        <p class="lastResult"></p>
-        <p class="lowOrHi"></p>
-        </div>
+        <hr/>
+    <p id="dateB">显示日期</p>
+    <button type="button" onclick="showDate()">显示日期</button>
 
-        
-
-        <script src="js/main.js"></script>
+        <script src="js/main.js"></script>     
 	</body>
 </html>

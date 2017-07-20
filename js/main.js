@@ -20,7 +20,7 @@ function changeFace(){
     function multi1(){
         var x=document.getElementById("s1")
         var N1=document.getElementById("N1").value;
-        var N2=document.getElementById("N1").value;
+        var N2=document.getElementById("N2").value;
 
         x.innerHTML= multi(N1,N2);
         

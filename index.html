@@ -4,22 +4,22 @@
 		<meta charset="utf-8" />
 		<title>my start</title>
         <link href="css/start.css" rel="stylesheet" type="text/css"> 
-          
-  	<body>
-		<p>            
-		<h1 id="tittle">常用</h1>
-            <p class="editor-note"> welcome to my <strong>great</strong> start</p>
-			<ul>
-            <li><a href="http://www.bangumi.tv">bangumi</a></li>
-			<li><a href="http://www.baiidu.com">baidu</a></li>
-			<li><a href="http://steamcommunity.com/id/shadowdreamer/home/">steam</a></li>
-			</ul>
-			<hr/>      <!--这是水平线-->
-	<img id="face" onclick="changeFace()"  alt="表情" src="img/face1.gif">
-        <br/>
-        <button type="button" onclick="changeTittle()">点我！</button>
-        
-        <hr/>        
+        <script type="text/javascript" src="js/main.js"></script>  
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/myjq.js"></script>        
+	</head>      
+  	<body>		         
+        <h1 id="tittle">常用</h1>
+            <div class="links">
+            <p class="editor-note"> welcome to my <strong>great</strong> start</p>			
+            <a  id="a1" href="http://www.bangumi.tv">bangumi</a>
+			<a  id="a2" href="http://www.baiidu.com">baidu</a>
+		    <a  id="a3" href="http://steamcommunity.com/id/shadowdreamer/home/">steam</a>
+            </div>
+	       
+        <img src="img/face1.gif" alt="表情" width="100" height="100" id="face" onClick="changeFace()">
+        <div class="tool">               
         <form>
         N1:<br>
         <input type="number" id="N1">
@@ -30,22 +30,12 @@
         <button type="button" onclick="multi1()">N1×N2</button>
         <p>乘积为：</p>
         <p id="s1">xx</p>
-        
-        <hr/> 
-        <p> 猜一个0~100的随机数</p>
-        <div class="form">
-            <label for="guessField">猜一个数字: </label><input type="text" id="guessField" class="guessField">
-            <input type="submit" value="Submit guess" class="guessSubmit">
-            </div>
-            <div class="resultParas">
-            <p class="guesses"></p>
-            <p class="lastResult"></p>
-            <p class="lowOrHi"></p>
-        </div>
-        <hr/>
-    <p id="dateB">显示日期</p>
-    <button type="button" onclick="showDate()">显示日期</button>
+        </div> 
 
-        <script src="js/main.js"></script>     
+        
+        <div class="tool"> 
+        <p id="dateB" onclick="resetShowdate()">显示日期</p>         
+        <button id="dateB" type="button" onclick="showDate()">显示日期</button>         
+        </div>
 	</body>
 </html>

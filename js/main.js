@@ -1,113 +1,23 @@
 
 
-function changeTittle(){
-    var x=document.getElementById("tittle");
-    x.innerHTML="很常用";
-  }
 function changeFace(){
     var element=document.getElementById("face")
     if (element.src.match("face2")){
         element.src="img/face1.gif";}
         else{
         element.src="img/face2.jpg";
-            }
+    }
   }
-
-    function multi(N1,N2){
-        var result= N1 * N2;
+function multi(N1,N2){
+    var result= N1 * N2;
         return result;
     }
-    function multi1(){
-        var x=document.getElementById("s1")
-        var N1=document.getElementById("N1").value;
-        var N2=document.getElementById("N2").value;
-
-        x.innerHTML= multi(N1,N2);
-        
-    }
-    
-
-var randomNumber = Math.floor(Math.random() * 100) + 1;
-
-var guesses = document.querySelector('.guesses');
-var lastResult = document.querySelector('.lastResult');
-var lowOrHi = document.querySelector('.lowOrHi');
-
-var guessSubmit = document.querySelector('.guessSubmit');
-var guessField = document.querySelector('.guessField');
-
-var guessCount = 1;
-var resetButton;
-var a=1;
-var n=0;
-
-function checkGuess() {
-   var userGuess = Number(guessField.value);
-    if (guessCount === 1) {
-        guesses.textContent = '猜测记录: ';
-        }
-    guesses.textContent += userGuess + ' ';
- 
-    if (userGuess === randomNumber) {
-        lastResult.textContent = '恭喜你答对了!';
-        lastResult.style.backgroundColor = 'green';
-        lowOrHi.textContent = '';
-        setGameOver();
-    }    
-    else if (guessCount === 10) {
-        lastResult.textContent = '!!!GAME OVER!!!';
-        setGameOver();
-    }    
-    else {
-        lastResult.textContent = '错误!';
-        lastResult.style.backgroundColor = 'pink';
-        if(userGuess < randomNumber) {
-            lowOrHi.textContent = '低了!';
-        }
-        else if(userGuess > randomNumber) {
-        lowOrHi.textContent = '高了!';
-        }
-    }
-   guessCount++;
-  guessField.value
-}
-guessSubmit.addEventListener('click', checkGuess);
-
-function setGameOver() {
-  guessField.disabled = true;
-  guessSubmit.disabled = true;
-  resetButton = document.createElement('button');
-  resetButton.textContent = '新一轮';
-  document.body.appendChild(resetButton);
-  resetButton.addEventListener('click', resetGame);
- }
-
-function resetGame() {
-  guessCount = 1;
-  n=0;
-
-  var resetParas = document.querySelectorAll('.resultParas p');
-  for (var i = 0 ; i < resetParas.length ; i++) {
-    resetParas[i].textContent = '';
-  }
-
-  resetButton.parentNode.removeChild(resetButton);
-
-  guessField.disabled = false;
-  guessSubmit.disabled = false;
-  guessField.value = '';
-  guessField.focus();
-
-  lastResult.style.backgroundColor = 'white';
-
-  randomNumber = Math.floor(Math.random() * 100) + 1;
-}
-
-function showDatedemo(){
-	document.getElementById("dateB").innerHTML=Date();
-}
-
-
+function multi1(){
+    var x=document.getElementById("s1")
+    var N1=document.getElementById("N1").value;
+    var N2=document.getElementById("N2").value;
+    x.innerHTML= multi(N1,N2);
+}  
 
 /*Js获取当前日期时间及其它操作
 var myDate = new Date();
@@ -124,40 +34,41 @@ myDate.getMilliseconds();    //获取当前毫秒数(0-999)
 myDate.toLocaleDateString();     //获取当前日期
 var mytime=myDate.toLocaleTimeString();     //获取当前时间
 myDate.toLocaleString( );        //获取日期与时间*/
-function currentDate(){
-    var date = new Date();
-    var seperator1 = "-";
-    var seperator2 = ":";
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    var strDate = date.getDate();
-        if (month >= 1 && month <= 9) {
-        month = "0" + month;
-    }
-    if (strDate >= 0 && strDate <= 9) {
-        strDate = "0" + strDate;
-    }
-    var currentdate = year + seperator1 + month + seperator1 + strDate;
-    return currentdate;
-    }
-
-
-function showDate(){
-    var b=currentDate();
-    var x=document.getElementById("dateB");
-    if (a==1||a==4){
-        x.innerHTML="今天是" + b;
-        a=2;            }
-    else{
-        if(a==2){
-            x.innerHTML="别点了，今天是" + b;
-            n=n+1;
-            a=3;             }            
-        else if(a=3 && n<4){
-            x.innerHTML="别点了，再点不告诉你了";
-            a=4;        }
-        else{
-            x.innerHTML="CNM不告诉你了";}
-    }
-
+var currentDate = {
+    date : new Date(),
+    year : function(){return this.date.getFullYear()},
+    day  : function(){
+            var tmp=this.date.getDate();
+            return tmp>=1&&tmp<=9?"0"+tmp:tmp;},
+    mont : function(){
+            var tmp = this.date.getMonth() + 1
+            return tmp>=1&&tmp<=9?"0"+tmp:tmp;},  
+    show : function() { 
+            return this.year() + "." + this.mont() + "." + this.day();},
+    luck : function() {return this.date.getMilliseconds()}
 }
+var a=new Array(0,0);  
+function showDate(){
+    var x=document.getElementById("dateB");
+    var b=currentDate.show();
+    if (a[0]==0||a[0]==3){
+        x.innerHTML="今天是" + b;
+        a[0]=1;         
+    }else{
+        if(a[0] == 1){            
+            x.innerHTML="别点了，今天是" + b;
+            a=[2,++a[1]];                   
+        }else{
+            if(a[0]==2 && a[1]<3){
+            x.innerHTML="别点了，再点不告诉你了";
+            a[0]=3;
+            }else{
+                x.innerHTML="CNM不告诉你了";
+            }
+        }
+    }
+}
+function resetShowdate(){
+    a=[0,0];
+}
+

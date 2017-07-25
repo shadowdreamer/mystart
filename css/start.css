@@ -13,15 +13,12 @@
 html {
   font-size: 18px; /* px 意为“像素（pixels）”: 这个基础字体的尺寸现在是10像素  */
   font-family: 'bgothm', sans-serif,'SiyuanHei';
-  background-color: rgb(209,221,239);
+  background-color: rgb(209,244,234)
+  
+  
 }
-body {
-  width: 800px;
-  margin: 0 auto;
-  background-color: rgb(156,221,239);
-  padding: 0 20px 20px 20px;
-  border: 5px solid rgb(120,212,290);
-}
+
+
 h1 {
   margin: 0 auto;
   display: block;
@@ -34,7 +31,47 @@ p{
 	color: #660066;
 }
 
-img {
-	  display: block;
-	  margin: 0 auto;
-	}
+#face {
+    display: block;
+    margin:10px 5px 15px 20px;
+    box-shadow:2px 2px #aaaaaa;
+
+	  }
+.links {
+  box-shadow:1px 4px 4px #aaaaaa;
+  margin:10px 5px 15px 20px;
+  padding:10px 15px;
+  background-color: rgb(209,221,239)}
+ul.link{overflow:hidden;width:100%;height: 120%}
+ul li{width:33.333%;float:left;}
+
+.tool {
+  box-shadow:1px 4px 4px #aaaaaa;
+  margin:10px 5px 15px 20px;
+  padding:5px 8px 5px 8px;
+  background-color: rgb(209,221,239);
+  width: 300px;
+}
+button{
+  padding: .3em .8em; 
+  border: 1px solid #446d88; 
+  background: #58a linear-gradient(#77a0bb, #58a); 
+  border-radius: .2em; 
+  box-shadow: 0 .05em .25em gray; 
+  color: white; 
+  text-shadow: 0 -.05em .05em #335166; 
+  font-size: 75%; 
+  line-height: 1.5;
+}
+a{
+  padding: .3em .8em; 
+  margin:10px 10px 1px 1px;
+  border: 1px solid #446d88; 
+  background: #58a; 
+  border-radius: .1em; 
+  box-shadow: 0 .05em .25em gray; 
+  color: white; 
+  text-shadow: 0 -.05em .05em #335166; 
+  font-size: 100%; 
+  line-height: 1.5;
+}

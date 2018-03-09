@@ -18,7 +18,11 @@ setInterval(function(){
         
     }
 },5000);
-for(let i =0;i<5;i++){
-    li[i].onclick=function(){
-       box.style.marginLeft = -i*550 +'px';}
-    }
+for(var i =0;i<4;i++){
+ (function(x){
+     li[x].addEventListener('click',function(){
+        box.style.marginLeft = -x*550 +'px';
+     },false);
+ }(i));
+}
+

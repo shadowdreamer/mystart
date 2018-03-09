@@ -30,7 +30,8 @@
     position: absolute;
     left: 300px;
     top:300px;
-
+    display: block;
+    width: 300px;
 }
 .btn li{    
     float: left;

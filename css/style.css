@@ -1,0 +1,47 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.warpper{
+    height: 400px;
+    width: 550px;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 1px gray solid;
+}
+.box{
+    width: 2750px;
+}
+
+.slide-list{
+    list-style: none;
+}
+.slide-item{
+    float: left;
+    overflow: hidden;
+    width: 550px;
+}
+.slide-item img{
+    height: 400px;
+    display: block;
+}
+.btn{
+    list-style: none;
+    position: absolute;
+    left: 300px;
+    top:300px;
+
+}
+.btn li{    
+    float: left;
+    display: block;
+    margin: 50px 10px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border-color: azure;
+    border-style: solid;
+    background-color: blueviolet;
+    opacity: 0.7;
+    cursor: pointer;
+}

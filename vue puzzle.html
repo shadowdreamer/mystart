@@ -21,7 +21,8 @@
         }
         .box {
             width: 600px;
-            background-color: #fdffdf;
+            background:radial-gradient(ellipse at top, #b4bac2, transparent),
+            radial-gradient(ellipse at bottom, #6fa7db, transparent);
             display: flex;
             flex-wrap: wrap;
 
@@ -31,7 +32,8 @@
     @media screen and (min-width: 320px) {
         .box {
             min-width: 300px;
-            background-color: #fdffdf;
+            background:radial-gradient(ellipse at top, #b4bac2, transparent),
+            radial-gradient(ellipse at bottom, #6fa7db, transparent);
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
@@ -116,7 +118,7 @@
 
     button {
         margin: 20px calc(50% - 120px);
-        background-color: rgb(170, 198, 216);
+        background:linear-gradient(to left, rgb(122, 165, 206) 15%, #eee 70%);
         border-radius: 20px;
         border: 2px black solid;
         height: 40px;
@@ -138,7 +140,7 @@
     }
 
     .timer {
-        background-color: #fdffdf;
+        background-color:rgb(122, 165, 206);
         height: 40px;
         width: 100%;
         font-size: 20px;
@@ -147,8 +149,10 @@
         text-align: center;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content:space-around;
+        
     }
+    
 
     .block {
         position: absolute;

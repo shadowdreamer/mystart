@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="https://cdn.bootcss.com/vue/2.5.15/vue.min.js"></script>
+    <script src="http://cdn.staticfile.org/vue/2.2.6/vue.min.js"></script>
 </head>
 <style>
     * {
@@ -97,7 +97,7 @@
         position: absolute;
         min-height: 100px;
         min-width: 80px;
-        background-image: url(img/back.jpg);
+        background-image: url(https://wx2.sinaimg.cn/mw690/69924d1bgy1fpdteklyuxj206o08cq4l.jpg);
         background-repeat: no-repeat;
         background-size: 80px 100px;
         backface-visibility: hidden;
@@ -185,7 +185,7 @@
 
         <div class="congrat" v-if='judge.n === 6'>Congratulations!!</div>
 
-        <button @click='start'>{{judge.n > 0?'restart':'Start'}}</button>
+        <button @click='start'>{{judge.n > 0?'Restart':'Start'}}</button>
 
 
     </div>

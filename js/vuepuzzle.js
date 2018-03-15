@@ -157,7 +157,7 @@ const v = new 　Vue({
         refresh:function(){
             let x = this.time.min*60000 + this.time.ss*100 + this.time.ms;
             let y = this.highscore.min*60000 + this.highscore.ss*100 + this.highscore.ms;
-            if(x > y){
+            if(x < y || y == 0){
                for(let i in this.highscore){
                     this.highscore[i] = this.time[i];
                }

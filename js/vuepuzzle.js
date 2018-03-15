@@ -103,8 +103,11 @@ const v = new 　Vue({
 
                     v.judge.b1.alive = false;
                     v.judge.b2.alive = false;
-                    v.judge.b1.done = true;
-                    v.judge.b2.done = true;
+                    setTimeout(function(){
+                        v.judge.b1.done = true;
+                        v.judge.b2.done = true;
+                    },300);
+                    
 
                     v.judge.a = '';
 

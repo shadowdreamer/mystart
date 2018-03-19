@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href='http://fonts.font.im/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        
+         /* ul{
+            margin: 20px auto;
+            padding: 0px 10px;
+            list-style: none;
+            display: block;
+            height: 40px;
+            width: 800px;
+            background-color:  rgb(255, 165, 0);
+            border-radius: 4px;
+            border:0px;
+            box-shadow: 4px 4px 2px 2px gray;
+            overflow: hidden;
+            clear: both;
+            
+        }
+        li{
+            float: left;            
+            height: 24px;
+            font-family: 'Open Sans', sans-serif;
+            text-shadow: 2px 2px 1px #222;
+            font-size: 24px;
+            line-height: 20px;
+            color: rgb(255, 255, 255);
+            padding: 0px 20px;
+            margin-top:8px;
+            border-right-style:dotted;
+            border-right-color: white; 
+            cursor: pointer;           
+        }
+        li:hover{
+            background-color:  rgb(255, 180, 25);
+        }
+        li:nth-child(6){
+           border-right-style: none;
+           margin-right: 0px;
+           padding-right: 0px;
+        } */
+
+        ul{
+            height: 300px;
+            width: 200px;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        li{
+            display: block;
+            flex-grow: 1;
+            line-height: 45px;
+            padding: auto;
+            text-align: center; 
+            font-size: 25px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color:ghostwhite;           
+        }
+        li:nth-of-type(2n){
+            background-color: darksalmon;
+        }
+        li:nth-of-type(2n+1){
+            background-color:darkorange;
+        }
+      
+        
+        .box{
+            
+            margin: 20px;
+            display: inline-block;
+            position: absolute;
+        }
+        .shadow{
+            position: absolute;
+            top:0px;
+            height: 50px;
+            width: 200px;
+           
+            transition: 200ms cubic-bezier(0.075, 0.82, 0.165, 1.5);
+        }
+        .shadow:hover{
+            box-shadow:0px 0px 2px 2px dimgray;
+        }
+        .y0{
+            top:0px;
+            
+        }
+        .y1{
+            top:50px;
+        }
+        .y2{
+            top:100px;
+        }
+        .y3{
+            top:150px;
+        }
+        .y4{
+            top:200px;
+        }
+        .y5{
+            top:250px;
+        }
+      
+        
+        
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+            <ul>
+                    <li>Home</li>
+                    <li>About me</li>
+                    <li>Portfolio</li>
+                    <li>Blog</li>
+                    <li>Resouces</li>
+                    <li>Contact me</li>
+                </ul>
+
+            <div class="shadow y"></div>
+    </div>
+<script>
+    var x = document.getElementsByTagName('li');
+    var y = document.getElementsByClassName('shadow')[0];
+    for(let i =0;i<6;i++){
+        x[i].num=i;
+        x[i].addEventListener('mouseover',function(){
+        y.className = 'shadow'+' '+'y'+this.num;
+
+        },false)
+    }
+
+
+</script>
+
+
+
+</body>
+</html>

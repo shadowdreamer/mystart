@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/vue.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    @media screen and (min-width: 500px) {
+        #warp {
+            width: 600px;
+            margin: 10px;
+        }
+        .box {
+            width: 600px;
+            background:radial-gradient(ellipse at top, #b4bac2, transparent),
+            radial-gradient(ellipse at bottom, #6fa7db, transparent);
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+    }
+
+    @media screen and (min-width: 320px) {
+        .box {
+            min-width: 300px;
+            background:radial-gradient(ellipse at top, #b4bac2, transparent),
+            radial-gradient(ellipse at bottom, #6fa7db, transparent);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    }
+
+
+
+    .cover {
+        margin: 8px;
+
+        height: 100px;
+        width: 80px;
+        /* box-sizing: border-box; */
+        /* background-color: purple; */
+        border-radius: 3px;
+        font-size: 120px;
+        color: pink;
+        line-height: 120px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 300ms ease-in-out;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+    }
+
+    .cover:hover {
+        -moz-box-shadow: 1px 1px 10px #FF4ADB, -4px 3px 9px #F0FF69, 5px 1px 8px #85FFFF;
+        -webkit-box-shadow: 1px 1px 10px #FF4ADB, -4px 3px 9px #F0FF69, 5px 1px 8px #85FFFF;
+        box-shadow: 1px 1px 10px #FF4ADB, -4px 3px 9px #F0FF69, 5px 1px 8px #85FFFF;
+    }
+
+
+
+
+    .rollback {
+        transform: rotate3d(0, 1, 0, 180deg);
+
+    }
+
+    div.rollback:hover {
+        box-shadow: none;
+    }
+
+
+
+    .front {
+        position: absolute;
+        height: 100px;
+        width: 80px;
+        overflow: hidden;
+        border-radius: 3px;
+        backface-visibility: hidden;
+        background-color: powderblue;
+        transform: translateZ(-2px) rotate3d(0, 1, 0, 180deg)
+    }
+
+    .front img {
+        display: block;
+        width: 80px;
+        /* height: 100px; */
+    }
+
+    .back {
+        position: absolute;
+        min-height: 100px;
+        min-width: 80px;
+        border-radius: 3px;
+        
+        background-image: url(https://wx2.sinaimg.cn/mw690/69924d1bgy1fpdteklyuxj206o08cq4l.jpg);
+        background-repeat: no-repeat;
+        background-size: 80px 100px;
+        backface-visibility: hidden;
+        transform: translateZ(2px)
+    }
+
+    .bingo {
+        position: absolute;
+        min-height: 100px;
+        min-width: 80px;
+        z-index: 2;
+        background-color: black;
+        transform: translateZ(-3px);
+        opacity: 0.4;
+    }
+
+    button {
+        margin: 20px calc(50% - 120px);
+        background:linear-gradient(to left, rgb(122, 165, 206) 15%, #eee 70%);
+        border-radius: 20px;
+        border: 2px black solid;
+        height: 40px;
+        width: 220px;
+        font-size: 28px;
+        line-height: 30px;
+        color: black;
+        cursor: pointer;
+    }
+
+    .congrat {
+        background-color: #f3d7b5;
+        height: 50px;
+        width: 100%;
+        font-size: 30px;
+        line-height: 40px;
+        color: white;
+        text-align: center;
+    }
+
+    .timer {
+        background-color:rgb(122, 165, 206);
+        height: 40px;
+        width: 100%;
+        font-size: 20px;
+        line-height: 30px;
+        color: #f3d7b5;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:space-around;
+        
+    }
+    
+
+    .block {
+        position: absolute;
+        height: 90%;
+        width: 90%;
+        z-index: 20;
+    }
+</style>
+
+
+
+<body>
+
+    <div id='warp'>
+        <div v-if='blockit' class="block"></div>
+        <div class="timer">
+            <span>计时：{{time.min + ':' + ss + ':' + ms }} </span>
+            <span>最短时间：{{highscore.min + ':' + highscore.ss + ':' + highscore.ms}}</span>
+        </div>
+        <div class="box">
+
+            <div v-for='pic in pics' :key='pic.id' @click='(pic.alive && !pic.select) && doit(pic)' class='cover' :class='{rollback: pic.select}'>
+
+                <div class='back'></div>
+                <div class='front'>
+                    <img :src="pic.p" :alt="pic.k">
+                </div>
+                <div v-if='pic.done' class="bingo"></div>
+
+
+            </div>
+
+        </div>
+
+        <div class="congrat" v-if='judge.n === 6'>Congratulations!!</div>
+
+        <button @click='start'>{{judge.n > 0?'Restart':'Start'}}</button>
+
+
+    </div>
+
+
+</body>
+<script src="js/vuepuzzle.js"></script>
+
+</html>

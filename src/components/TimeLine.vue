@@ -8,7 +8,7 @@ export default {
   name:'TimeLine',
   data(){
       return {
-          msg:'timeline here'
+        msg:'timeline here'
       }
   },
   

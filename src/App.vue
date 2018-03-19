@@ -2,11 +2,14 @@
   <div id="app">
     <TopNav></TopNav>
     <router-view/>
+    
   </div>
+  
 </template>
 
 <script>
-import TopNav from './components/TopNav.vue'
+import TopNav from './components/TopNav'
+
 export default {
   name: 'App',
   components:{
@@ -21,5 +24,7 @@ export default {
     margin: 0px;
     list-style: none;
     text-decoration-style: none;
+    color: inherit;
+    text-decoration-line: none;
   }
 </style>

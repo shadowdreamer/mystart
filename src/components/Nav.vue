@@ -6,7 +6,7 @@
           <div class="whiteclose" v-show="showside" @click="showside = !showside"></div>
           <ul class="list" :class="{showlist:showside}">
               <div class="showme">
-                <img src="../assets/logo.jpg">
+                <img src="../../static/logo.jpg">
               </div>
               <li class="links" @click="showside = !showside"><router-link to="/">Home</router-link></li>
               <li class="links" @click="showside = !showside;index = 2"><router-link to="/timeline">TimeLine</router-link></li>
@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     handleScroll() {
-      if (window.scrollY > 140) {
+      if (window.scrollY > 160) {
         this.navfix = true;
       } else {
         this.navfix = false;
@@ -60,7 +60,7 @@ export default {
   height: 300px;
   width: 100%;
   padding-top: 50px;
-  background-image: url("../assets/title.jpg");
+  background-image: url("../../static/title.jpg");
   background-size: 100%;
   background-position: center;
 }
@@ -68,7 +68,7 @@ export default {
 @media (max-width: 768px) {
   /* 小屏幕 */
   .nav {
-    margin: 40px auto 20px;
+    margin: 50px auto 20px;
     
   }
   .wrapper {
@@ -156,7 +156,7 @@ export default {
         display: none;
     }
   .nav {
-    margin: 40px auto 20px;
+    margin: 200px auto 20px;
   }
   div.navfix {
     margin-top: 0px;

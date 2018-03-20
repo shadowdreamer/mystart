@@ -54,7 +54,7 @@ export default {
   box-shadow: 1px 1px 5px gray;
   border-radius: 2px;
   font-size: 0px;
- 
+ z-index: 10;
 }
 .wrapper {
   height: 300px;
@@ -124,7 +124,7 @@ export default {
   }
   .showme img {
     display: block;
-    width: 150px;
+    width: 100px;
     border-radius: 50%;
     
   }

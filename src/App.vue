@@ -5,16 +5,17 @@
     <transition name = 'content'>
       <router-view/>
     </transition>
-    
+    <myFooter></myFooter>
   </div>
 </template>
 
 <script>
-import Nav from "./components/Nav";
+import Nav from "./components/Nav"
+import myFooter from "./components/Footer"
 export default {
   name: "App",
   components: {
-    Nav
+    Nav,myFooter
   }
 };
 </script>

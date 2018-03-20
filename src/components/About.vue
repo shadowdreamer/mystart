@@ -4,11 +4,11 @@
   </div>
 </template>
 <style scoped>
-    .content{
+     .content{
         
         max-width: 999px;
-        height: 1500px;
+        height: 1000px;
         box-shadow: 1px 1px 3px gray;
-        margin: 5px auto;
+        margin: 5px auto 50px;
     }
 </style>

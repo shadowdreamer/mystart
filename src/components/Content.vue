@@ -1,6 +1,5 @@
 <template>
-  
   <div>
-      about
+      content
   </div>
 </template>

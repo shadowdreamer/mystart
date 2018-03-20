@@ -1,6 +1,6 @@
 # mystart
 
-> my personal blog
+> my start
 
 ## Build Setup
 

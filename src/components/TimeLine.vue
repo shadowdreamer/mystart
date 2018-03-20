@@ -1,21 +1,16 @@
 <template>
-  <div class="timeline">
-    {{msg}}
+  <div class="content">
+      timeline
   </div>
 </template>
 <script>
 export default {
-  name:'TimeLine',
-  data(){
-      return {
-        msg:'timeline here'
-      }
-  },
-  
   
 }
 </script>
-<style scoped>
-
-
+<style>
+    .content{
+        height: 5000px;
+    }
 </style>
+

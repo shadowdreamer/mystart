@@ -1,28 +1,27 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import MainContent from '@/components/MainContent'
-import TimeLine from '@/components/TimeLine'
+import Content from '@/components/Content'
+import Timeline from '@/components/Timeline'
 import About from '@/components/About'
-
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
+     {
       path: '/',
-      name: 'MainContent',
-      component: MainContent
+      name: 'Content',
+      component: Content
     },
     {
       path: '/timeline',
-      name: 'TimeLine',
-      component: TimeLine,
+      name: 'Timeline',
+      component: Timeline
     },
     {
       path: '/about',
       name: 'About',
-      component: About,
+      component: About
     },
   ]
 })

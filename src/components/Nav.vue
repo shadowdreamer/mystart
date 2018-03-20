@@ -6,7 +6,7 @@
           <div class="whiteclose" v-show="showside" @click="showside = !showside"></div>
           <ul class="list" :class="{showlist:showside}">
               <div class="showme">
-                <img src="../../static/logo.jpg">
+                <img src="http://wx4.sinaimg.cn/large/69924d1bgy1fpjm1fi1dej2050050q37.jpg">
               </div>
               <li class="links" @click="showside = !showside"><router-link to="/">Home</router-link></li>
               <li class="links" @click="showside = !showside;index = 2"><router-link to="/timeline">TimeLine</router-link></li>
@@ -60,7 +60,7 @@ export default {
   height: 300px;
   width: 100%;
   padding-top: 50px;
-  background-image: url("../../static/title.jpg");
+  background-image: url("http://wx1.sinaimg.cn/large/69924d1bgy1fpjm1etdf7j217r0mvall.jpg");
   background-size: 100%;
   background-position: center;
 }

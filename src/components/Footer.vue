@@ -77,4 +77,7 @@ p span {
 .zhanwei{
     height: 10px;
 }
+p a{
+  color:palevioletred;
+}
 </style>

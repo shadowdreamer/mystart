@@ -19,7 +19,7 @@ export default {
         max-width: 999px;
         height: 1000px;
         box-shadow: 1px 1px 3px gray;
-        margin: 5px auto 50px;
+        margin: 30px auto 50px;
     }
 </style>
 

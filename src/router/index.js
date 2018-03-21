@@ -10,18 +10,29 @@ export default new Router({
   routes: [
      {
       path: '/',
-      name: 'Content',
+      name: 'home',
       component: Content
     },
     {
       path: '/timeline',
-      name: 'Timeline',
+      name: 'timeline',
       component: Timeline
     },
     {
       path: '/about',
-      name: 'About',
+      name: 'about',
       component: About
     },
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition){
+    if(savedPosition){
+      return savedPosition
+    }else{
+      if(window.scrollY < 160){
+        return undefined
+      }else{
+        return {x:0, y:161}
+      }
+    }
+  }
 })

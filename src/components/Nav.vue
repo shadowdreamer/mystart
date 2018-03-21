@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
+    <div class = "bigtitle">Jing's Blog</div>
       <div class="nav" :class="{'navfix':navfix}">
+        
           <div class ="menu" @click="showside = !showside"><img src="../assets/Category.png" alt="三"></div>
           <div class="title"><router-link to="/">Jing's Blog</router-link></div>
           <div class="whiteclose" v-show="showside" @click="showside = !showside"></div>
@@ -8,9 +10,9 @@
               <div class="showme">
                 <img src="http://wx4.sinaimg.cn/large/69924d1bgy1fpjm1fi1dej2050050q37.jpg">
               </div>
-              <li class="links" @click="showside = !showside"><router-link to="/">Home</router-link></li>
-              <li class="links" @click="showside = !showside;index = 2"><router-link to="/timeline">TimeLine</router-link></li>
-              <li class="links" @click="showside = !showside;index = 3"><router-link to="/about">AboutMe</router-link></li>
+              <li class="links" :class="{'active':this.$route.name == 'home' }" @click="showside = !showside" ><router-link to="/">Home</router-link></li>
+              <li class="links" :class="{'active':this.$route.name == 'timeline' }" @click="showside = !showside"><router-link to="/timeline">TimeLine</router-link></li>
+              <li class="links" :class="{'active':this.$route.name == 'about' }" @click="showside = !showside"><router-link to="/about">AboutMe</router-link></li>
                 <div class="foot">
                     <p>©2018   shadowdreamer</p>
                     <p>荣幸的采用<a href="https://cn.vuejs.org/">Vue.js</a>搭建</p>
@@ -27,13 +29,13 @@
 export default {
   data() {
     return {
-      showside: false,
-      index: 1,
+      showside: false,      
       navfix: false
     };
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
+    console.log(this);
   },
   methods: {
     handleScroll() {
@@ -54,7 +56,7 @@ export default {
   box-shadow: 1px 1px 5px gray;
   border-radius: 2px;
   font-size: 0px;
- z-index: 10;
+  z-index: 10;
 }
 .wrapper {
   height: 300px;
@@ -67,9 +69,14 @@ export default {
 
 @media (max-width: 768px) {
   /* 小屏幕 */
+  .bigtitle{
+    display: none;
+  }
+  li.active {
+    border-left: 5px palevioletred solid;
+  }
   .nav {
     margin: 50px auto 20px;
-    
   }
   .wrapper {
     height: 120px;
@@ -100,7 +107,6 @@ export default {
   .menu {
     display: inline-block;
     margin: 7px 7px;
-    
   }
   .menu img {
     height: 26px;
@@ -120,13 +126,11 @@ export default {
   }
   .showme {
     margin: 20px 20px;
-    
   }
   .showme img {
     display: block;
     width: 100px;
     border-radius: 50%;
-    
   }
   .title {
     display: inline-block;
@@ -138,23 +142,30 @@ export default {
     font-size: 19px;
     line-height: 40px;
   }
-  .foot{
-      position: absolute;
-      left: 10px;
-      bottom: 10px;
-      font-size: 12px;
-      color: rgb(172, 171, 171);
-
+  .foot {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-size: 12px;
+    color: rgb(172, 171, 171);
   }
-  .foot p{
-      margin-top: 3px;
+  .foot p {
+    margin-top: 3px;
   }
 }
 
 @media (min-width: 768px) {
-    .foot{
-        display: none;
-    }
+  .bigtitle{
+    font-size: 60px;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: white;
+    text-shadow:1px 1px 10px palevioletred;
+  }
+  .foot {
+    display: none;
+  }
   .nav {
     margin: 200px auto 20px;
   }
@@ -170,6 +181,10 @@ export default {
     width: 120px;
     text-align: center;
   }
+  li.active {
+    line-height: 37px;
+    border-bottom: 5px palevioletred solid;
+  }
   .menu {
     display: none;
   }
@@ -180,7 +195,10 @@ export default {
     display: none;
   }
 }
-
+.links a{
+  /* 扩大点击区域！！ */
+  display: block; 
+}
 .links {
   color: dimgrey;
   font-size: 19px;
@@ -189,6 +207,9 @@ export default {
 .links:hover {
   background-color: rgb(196, 195, 195);
   color: black;
+}
+p a{
+  color:palevioletred;
 }
 </style>
 

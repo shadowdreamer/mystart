@@ -1,21 +1,23 @@
 <template>
   <div id="app">
-    <Nav></Nav>
+    <myNav></myNav>
     
     <transition name = 'content'>
       <router-view/>
     </transition>
+    <Sidebar></Sidebar>
     <myFooter></myFooter>
   </div>
 </template>
 
 <script>
-import Nav from "./components/Nav"
+import myNav from "./components/Nav"
 import myFooter from "./components/Footer"
+import Sidebar from "./components/Sidebar"
 export default {
   name: "App",
   components: {
-    Nav,myFooter
+    myNav,myFooter,Sidebar
   }
 };
 </script>

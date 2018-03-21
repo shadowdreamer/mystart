@@ -35,7 +35,7 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
-    console.log(this);
+    // console.log(this);
   },
   methods: {
     handleScroll() {
@@ -209,7 +209,7 @@ export default {
   color: black;
 }
 p a{
-  color:palevioletred;
+  color:rgb(199, 167, 178);
 }
 </style>
 

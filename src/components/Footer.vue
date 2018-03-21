@@ -78,6 +78,6 @@ p span {
     height: 10px;
 }
 p a{
-  color:palevioletred;
+  color:rgb(199, 167, 178);
 }
 </style>

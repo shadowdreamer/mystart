@@ -1,36 +1,49 @@
 <template>
   <div class="wrapper">
     <div class = "bigtitle">Jing's Blog</div>
-      <div class="nav" :class="{'navfix':navfix}">
-        
-          <div class ="menu" @click="showside = !showside"><img src="../assets/Category.png" alt="三"></div>
-          <div class="title"><router-link to="/">Jing's Blog</router-link></div>
-          <div class="whiteclose" v-show="showside" @click="showside = !showside"></div>
-          <ul class="list" :class="{showlist:showside}">
-              <div class="showme">
-                <img src="http://wx4.sinaimg.cn/large/69924d1bgy1fpjm1fi1dej2050050q37.jpg">
-              </div>
-              <li class="links" :class="{'active':this.$route.name == 'home' }" @click="showside = !showside" ><router-link to="/">Home</router-link></li>
-              <li class="links" :class="{'active':this.$route.name == 'timeline' }" @click="showside = !showside"><router-link to="/timeline">TimeLine</router-link></li>
-              <li class="links" :class="{'active':this.$route.name == 'about' }" @click="showside = !showside"><router-link to="/about">AboutMe</router-link></li>
-                <div class="foot">
-                    <p>©2018   shadowdreamer</p>
-                    <p>荣幸的采用<a href="https://cn.vuejs.org/">Vue.js</a>搭建</p>
-                    <p>所有组件全部手打的静态博客</p>
-                    <p><a href="http://www.miitbeian.gov.cn/" target="_blank">冀ICP备17023742号</a> </p>                    
-                </div>        
-          
-          </ul>
-          
-      </div>
+    <div class="nav" :class="{'navfix':navfix}">
+      <div class ="menu" @click="showside = !showside"><img src="../assets/Category.png" alt="三"></div>
+      <div class="title"><router-link to="/">Jing's Blog</router-link></div>
+      <div class="whiteclose" v-show="showside" @click="showside = !showside"></div>
+      <ul class="list" :class="{showlist:showside}">
+          <div class="showme">
+          <img src="http://wx4.sinaimg.cn/large/69924d1bgy1fpjm1fi1dej2050050q37.jpg">
+          </div>
+          <li class="links" :class="{'active':this.$route.name == 'home' }" @click="showside = !showside" ><router-link to="/">Home</router-link></li>
+          <li class="links" :class="{'active':this.$route.name == 'timeline' }" @click="showside = !showside"><router-link to="/timeline">TimeLine</router-link></li>
+          <li class="links" :class="{'active':this.$route.name == 'about' }" @click="showside = !showside"><router-link to="/about">AboutMe</router-link></li>
+          <div class="foot">
+            <p>©2018 😝<a href="https://github.com/shadowdreamer">shadowdreamer</a></p>
+            <p>荣幸的采用<a href="https://cn.vuejs.org/">Vue.js</a>搭建</p>
+            <p>所有组件全部手打的静态博客</p>
+            <p><a href="http://www.miitbeian.gov.cn/" target="_blank">冀ICP备17023742号</a> </p>                    
+          </div>         
+      </ul>
+      
+      <myMenu :listdata = "menu" class="navmenu">         
+        <img src="../assets/menu.png" alt="菜单" slot="icon"> 
+      </myMenu>
+    </div>      
   </div>
 </template>
 <script>
+import myMenu from "./Menu";
 export default {
   data() {
     return {
-      showside: false,      
-      navfix: false
+      showside: false,
+      navfix: false,
+      menu: [
+       
+        {text:'github',link:'https://github.com/shadowdreamer'},
+        {text:'F♂rk it',link:'https://github.com/shadowdreamer/mystart'},
+        {text:'Sina',link:'https://weibo.com/qq781178419'},
+        {text:'Twitter',link:'https://twitter.com/q781178419'},
+        {text:'Steam',link:'http://steamcommunity.com/id/shadowdreamer/'},
+        {text:'Bangumi',link:'https://bgm.tv/user/shadowdreamer'},
+         
+         ],
+     
     };
   },
   mounted() {
@@ -45,11 +58,15 @@ export default {
         this.navfix = false;
       }
     }
+  },
+  components: {
+    myMenu
   }
 };
 </script>
 <style scoped>
 .nav {
+  
   max-width: 999px;
   height: 40px;
   background-color: white;
@@ -69,12 +86,10 @@ export default {
 
 @media (max-width: 768px) {
   /* 小屏幕 */
-  .bigtitle{
+  .bigtitle {
     display: none;
   }
-  li.active {
-    border-left: 5px palevioletred solid;
-  }
+
   .nav {
     margin: 50px auto 20px;
   }
@@ -91,7 +106,7 @@ export default {
   .list {
     position: fixed;
     height: 100%;
-    width: 250px;
+    width: 223px;
     background: white;
     box-shadow: 1px 1px 5px gray;
     top: 0px;
@@ -103,6 +118,11 @@ export default {
     padding-left: 20px;
     box-sizing: border-box;
     margin-top: 20px;
+  }
+  li.active {
+    border-left: 8px palevioletred solid;
+    padding-left: 12px;
+    background-color: rgb(245, 236, 239);
   }
   .menu {
     display: inline-block;
@@ -133,6 +153,7 @@ export default {
     border-radius: 50%;
   }
   .title {
+    position: absolute;
     display: inline-block;
     vertical-align: top;
     text-align: center;
@@ -155,13 +176,13 @@ export default {
 }
 
 @media (min-width: 768px) {
-  .bigtitle{
+  .bigtitle {
     font-size: 60px;
     position: absolute;
-    top: 30px;
-    right: 50px;
+    top: 100px;
+    right: calc(20% - 50px);
     color: white;
-    text-shadow:1px 1px 10px palevioletred;
+    text-shadow: 1px 1px 10px palevioletred;
   }
   .foot {
     display: none;
@@ -184,6 +205,7 @@ export default {
   li.active {
     line-height: 37px;
     border-bottom: 5px palevioletred solid;
+    background-color: rgb(245, 236, 239);
   }
   .menu {
     display: none;
@@ -195,9 +217,9 @@ export default {
     display: none;
   }
 }
-.links a{
+.links a {
   /* 扩大点击区域！！ */
-  display: block; 
+  display: block;
 }
 .links {
   color: dimgrey;
@@ -208,8 +230,19 @@ export default {
   background-color: rgb(196, 195, 195);
   color: black;
 }
-p a{
-  color:rgb(199, 167, 178);
+p a {
+  color: rgb(199, 167, 178);
 }
+.navmenu {
+  display: block;
+  float: right;
+  margin-top: 7px;
+  margin-right: 7px;
+  
+}
+.navmenu img{
+  height: 26px;
+}
+
 </style>
 

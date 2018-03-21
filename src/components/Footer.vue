@@ -3,7 +3,8 @@
         <div class="zhanwei"></div>
         <transition name = 'footer'>
         <footer v-show="showfoot">
-        <p>©2018   shadowdreamer</p>
+        <p>©2018 😝<a href="https://github.com/shadowdreamer">shadowdreamer</a></p>
+        
         <p> <span>荣幸的采用<a href="https://cn.vuejs.org/">Vue.js</a>搭建</span> <span>所有组件全部手打的静态博客</span></p>
         
         <p><a href="http://www.miitbeian.gov.cn/" target="_blank">冀ICP备17023742号</a> </p>     
@@ -48,13 +49,22 @@ export default {
 };
 </script>
 <style scoped>
+@media (max-width: 768px) {
+  .zhanwei,
+  footer{
+    display: none;
+  }
+ 
+}
+
+
 footer {
   position: fixed;
   bottom: 0px;
   width: 100%;
   height: 50px;
   background-color: white;
-  box-shadow: -1px -1px 3px gray;
+  box-shadow: 0px -1px 1px gray;
   font-size: 12px;
   color: gray;
   text-align: center;
@@ -66,16 +76,13 @@ p span {
 .footer-leave-active {
   transition: all .4s ease;
 }
-.footer-enter{
-  transform: translateY(-10px);
-  opacity: 0;
-}
+.footer-enter,
 .footer-leave-to {
   transform: translateY(10px);
   opacity: 0;
 }
 .zhanwei{
-    height: 10px;
+    height: 50px;
 }
 p a{
   color:rgb(199, 167, 178);

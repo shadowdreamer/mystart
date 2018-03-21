@@ -7,8 +7,9 @@
      .content{
         background-color: white;
         max-width: 999px;
-        height: 1000px;
+        height: 700px;
         box-shadow: 1px 1px 3px gray;
-        margin: 30px auto 50px;
+        margin: 0px auto 10px;
+        padding-top: 40px;
     }
 </style>

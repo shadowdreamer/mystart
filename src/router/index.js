@@ -8,7 +8,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-     {
+    {
       path: '/',
       name: 'home',
       component: Content
@@ -24,14 +24,14 @@ export default new Router({
       component: About
     },
   ],
-  scrollBehavior(to, from, savedPosition){
-    if(savedPosition){
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
       return savedPosition
-    }else{
-      if(window.scrollY < 160){
+    } else {
+      if (window.scrollY < 160) {
         return undefined
-      }else{
-        return {x:0, y:161}
+      } else {
+        return { x: 0, y: 161 }
       }
     }
   }

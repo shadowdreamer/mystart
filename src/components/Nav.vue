@@ -86,6 +86,7 @@ export default {
   /* 小屏幕 */
    .bigtitle{
     top: 40px;
+    font-size: 22px;
   }
   .nav {
     margin: 50px auto 20px;
@@ -175,6 +176,7 @@ export default {
 @media (min-width: 768px) {
   .bigtitle{
     top: 100px;
+    font-size: 32px;
   }
   .foot {
     display: none;
@@ -235,12 +237,13 @@ p a {
   height: 26px;
 }
 .bigtitle {
-  font-size: 22px;
+  
   position: absolute;
-  right: calc(20% - 80px);
+  right: calc(7% + 10px);
   color: white;
   font-family: "cmn";
-  cursor: default;
+  cursor: url('../assets/sakura.png'),auto;
+  user-select: none;
 }
 .bigtitle p{
   text-shadow:0px 0px 15px rgb(121, 63, 82);
@@ -249,8 +252,8 @@ p a {
   display: inline-block;
   position: absolute;
   content: "欢迎来到我的丢人博客";
-  margin-left: 15px;
-  margin-top: 40px;
+  margin-left: 30px;
+  margin-top: 50px;
   padding: 0px 10px;
   height: 30px;
   line-height: 28px;

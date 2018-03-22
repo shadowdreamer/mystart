@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
-    <div class = "bigtitle">Jing's Blog</div>
+    <div class = "bigtitle">
+      <p>「いいえ、もう春です」</p>          
+    </div>
     <div class="nav" :class="{'navfix':navfix}">
       <div class ="menu" @click="showside = !showside"><img src="../assets/Category.png" alt="三"></div>
       <div class="title"><router-link to="/">Jing's Blog</router-link></div>
@@ -34,16 +36,13 @@ export default {
       showside: false,
       navfix: false,
       menu: [
-       
-        {text:'github',link:'https://github.com/shadowdreamer'},
-        {text:'F♂rk it',link:'https://github.com/shadowdreamer/mystart'},
-        {text:'Sina',link:'https://weibo.com/qq781178419'},
-        {text:'Twitter',link:'https://twitter.com/q781178419'},
-        {text:'Steam',link:'http://steamcommunity.com/id/shadowdreamer/'},
-        {text:'Bangumi',link:'https://bgm.tv/user/shadowdreamer'},
-         
-         ],
-     
+        { text: "github", link: "https://github.com/shadowdreamer" },
+        { text: "F♂rk it", link: "https://github.com/shadowdreamer/mystart" },
+        { text: "Sina", link: "https://weibo.com/qq781178419" },
+        { text: "Twitter", link: "https://twitter.com/q781178419" },
+        { text: "Steam", link: "http://steamcommunity.com/id/shadowdreamer/" },
+        { text: "Bangumi", link: "https://bgm.tv/user/shadowdreamer" }
+      ]
     };
   },
   mounted() {
@@ -66,7 +65,6 @@ export default {
 </script>
 <style scoped>
 .nav {
-  
   max-width: 999px;
   height: 40px;
   background-color: white;
@@ -86,10 +84,9 @@ export default {
 
 @media (max-width: 768px) {
   /* 小屏幕 */
-  .bigtitle {
-    display: none;
+   .bigtitle{
+    top: 40px;
   }
-
   .nav {
     margin: 50px auto 20px;
   }
@@ -176,13 +173,8 @@ export default {
 }
 
 @media (min-width: 768px) {
-  .bigtitle {
-    font-size: 60px;
-    position: absolute;
+  .bigtitle{
     top: 100px;
-    right: calc(20% - 50px);
-    color: white;
-    text-shadow: 1px 1px 10px palevioletred;
   }
   .foot {
     display: none;
@@ -238,11 +230,37 @@ p a {
   float: right;
   margin-top: 7px;
   margin-right: 7px;
-  
 }
-.navmenu img{
+.navmenu img {
   height: 26px;
 }
-
+.bigtitle {
+  font-size: 22px;
+  position: absolute;
+  right: calc(20% - 80px);
+  color: white;
+  font-family: "cmn";
+  cursor: default;
+}
+.bigtitle p{
+  text-shadow:0px 0px 15px rgb(121, 63, 82);
+}
+.bigtitle:hover > p::before {
+  display: inline-block;
+  position: absolute;
+  content: "欢迎来到我的丢人博客";
+  margin-left: 15px;
+  margin-top: 40px;
+  padding: 0px 10px;
+  height: 30px;
+  line-height: 28px;
+  font-size: 12px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 8px;
+  background-color: rgba(8, 8, 8);
+  color: white;
+  z-index: 8;
+}
 </style>
 

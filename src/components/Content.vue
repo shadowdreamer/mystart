@@ -1,10 +1,24 @@
 <template>
   <div class="content">
-      <div class="wrap">
-
-      </div>
+     <mySlider :sliderIn='sliders'></mySlider>
   </div>
 </template>
+<script>
+import mySlider from './Slider.vue'
+export default {
+    data(){
+        return{
+            sliders:[
+
+            ], //格式：{img:'../static/1.jpg',url:'#',text:'凑数1号'}，少于4个会补齐至4个
+        }
+    },
+  components:{
+      mySlider,
+  }
+}
+</script>
+
 <style scoped>
     .content{
         background-color: white;
@@ -12,11 +26,7 @@
         height: 1000px;
         box-shadow: 1px 1px 3px gray;
         margin: 0px auto 5px;        
-        padding-top: 40px;
+        padding-top: 40px;      
     }
-    .wrap{
-        height: 100px;
-        width: 100px;
-        border: 1px red solid;
-    }
+
 </style>

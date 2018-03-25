@@ -3,7 +3,8 @@
         <div class="wrap"  @mousemove="stop" @mouseout="rollit">
             <ul class='box list' :class="[pst,boxanime?'boxanime':'']">
                 <li v-for="(item,index) in sliderItems" :key='item.id'>
-                    <div class="item" :style="{ 'background-image': 'url(' + item.img + ')'}"
+                    <div class="item"
+                    :style="{ 'background-image': 'url(' + item.img + ')'}"
                     :class="[((n+1) === index)?'large':'',itemanime?'itemanime':'']">
                         <a :href="item.url"></a>
                         <p>{{item.text}}</p>

@@ -77,7 +77,7 @@ export default {
             function() {
                 let a = document.documentElement.offsetHeight;
                 let b = document.documentElement.scrollTop;
-                _this.scrollpst = 100 - Math.sqrt(b / a) * 100;
+                _this.scrollpst = Math.sqrt(b / a) * 150;
             },
             false
         );
@@ -101,13 +101,13 @@ export default {
 @media (max-width: 768px) {
     .wrap {
         padding-bottom: 90%;
-        background-size: 150%;
+        background-size: 180%;
     }
 }
 @media (min-width: 768px) {
     .wrap {
         padding-bottom: 35%;
-        background-size: 120%;
+        background-size: 150%;
     }
 }
 .title {

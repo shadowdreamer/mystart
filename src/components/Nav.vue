@@ -16,6 +16,9 @@
                 <li class="links" :class="{'active':this.$route.name == 'home' }" @click="showside = !showside">
                     <router-link to="/">Home</router-link>
                 </li>
+                <li class="links" :class="{'active':this.$route.name == 'portfolio' }" @click="showside = !showside">
+                    <router-link to="/portfolio">Portfolio</router-link>
+                </li>
                 <li class="links" :class="{'active':this.$route.name == 'timeline' }" @click="showside = !showside">
                     <router-link to="/timeline">TimeLine</router-link>
                 </li>
@@ -38,6 +41,9 @@
             <myMenu :listdata="menu" class="navmenu">
                 <img src="../assets/menu.png" alt="菜单" slot="icon">
             </myMenu>
+        </div>
+        <div class="pixivid">
+            <a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=30516713" target="_blank">pixiv id=30516713</a>
         </div>
     </div>
 </template>
@@ -238,6 +244,7 @@ export default {
     color: dimgrey;
     font-size: 19px;
     line-height: 40px;
+    transition: all .2s linear;
 }
 .links:hover {
     background-color: rgb(196, 195, 195);
@@ -282,6 +289,19 @@ p a {
     background-color: rgba(8, 8, 8);
     color: white;
     z-index: 8;
+}
+.pixivid {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.63);
+    background-color: rgba(0, 0, 0, 0.336);
+    height: 18px;
+    width: 110px;
+    padding: 0px 5px;
+    line-height: 17px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-bottom-right-radius: 5px;
 }
 </style>
 

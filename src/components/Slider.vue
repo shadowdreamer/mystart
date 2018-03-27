@@ -1,11 +1,9 @@
 <template>
     <div class="slider">
-        <div class="wrap"  @mousemove="stop" @mouseout="rollit">
+        <div class="wrap" @mousemove="stop" @mouseout="rollit">
             <ul class='box list' :class="[pst,boxanime?'boxanime':'']">
                 <li v-for="(item,index) in sliderItems" :key='item.id'>
-                    <div class="item"
-                    :style="{ 'background-image': 'url(' + item.img + ')'}"
-                    :class="[((n+1) === index)?'large':'',itemanime?'itemanime':'']">
+                    <div class="item" :style="{ 'background-image': 'url(' + item.img + ')'}" :class="[((n+1) === index)?'large':'',itemanime?'itemanime':'']">
                         <a :href="item.url"></a>
                         <p>{{item.text}}</p>
                     </div>
@@ -28,12 +26,12 @@ export default {
             itemanime: true,
             btns: [0],
             dir: 0,
-            n: 0,
+            n: 0
         };
     },
-    computed:{
-        pst(){
-            return 'pst'+this.n
+    computed: {
+        pst() {
+            return "pst" + this.n;
         }
     },
     props: ["sliderIn"],
@@ -87,26 +85,26 @@ export default {
             }
             this.btns[this.dir] = 1;
         },
-        slide(n){
-            if(n){
-                if(this.n>=4){
+        slide(n) {
+            if (n) {
+                if (this.n >= 4) {
                     this.boxanime = false;
                     this.itemanime = false;
-                    this.n =0
-                }else{
+                    this.n = 0;
+                } else {
                     this.boxanime = true;
                     this.itemanime = true;
-                    this.n++
+                    this.n++;
                 }
-            }else{
-                if(this.n<=0){
+            } else {
+                if (this.n <= 0) {
                     this.boxanime = false;
                     this.itemanime = false;
-                    this.n =4
-                }else{
+                    this.n = 4;
+                } else {
                     this.boxanime = true;
                     this.itemanime = true;
-                    this.n--
+                    this.n--;
                 }
             }
         }
@@ -117,11 +115,19 @@ export default {
 <style scoped>
 .slider {
     position: relative;
-    width: 800px;
+    width: 100%;
     margin: 0 auto;
     height: 230px;
     overflow: hidden;
     z-index: inherit;
+}
+.wrap {
+    margin: 30px -12% 0px;
+}
+@media (max-width: 768px) {
+    .wrap {
+        margin: 30px -400px 0px;
+    }
 }
 .box {
     width: 6000px;
@@ -138,10 +144,7 @@ export default {
     background-size: 400px;
     background-position: center;
 }
-.wrap {
-    margin-top: 30px;
-    margin-left: -200px;
-}
+
 .boxanime,
 .itemanime {
     transition: all 0.3s ease-in;
@@ -191,11 +194,10 @@ export default {
 .pst5 {
     margin-left: -2000px;
 }
-.btns{
+.btns {
     position: absolute;
     left: 120px;
     margin: 190px;
-
 }
 .btn {
     float: left;
@@ -209,21 +211,21 @@ export default {
 .active {
     background-color: rgb(172, 57, 95);
 }
-.sidebtn{
+.sidebtn {
     position: absolute;
     background: black;
     height: 80px;
     width: 30px;
-    top:90px;
+    top: 90px;
     opacity: 0.2;
 }
-.sidebtn:hover{
+.sidebtn:hover {
     opacity: 0.7;
 }
-.leftbtn{
-    left: 0px
+.leftbtn {
+    left: 0px;
 }
-.rightbtn{
-    right: 0px
+.rightbtn {
+    right: 0px;
 }
 </style>

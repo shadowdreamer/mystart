@@ -6,7 +6,7 @@
                 <p>
                     {{item.abstract}}
                 </p>
-                </div>
+            </div>
             <div class="bottom">
                 <span v-for="tag in item.tag" :key=tag>{{tag}}</span>
             </div>
@@ -77,7 +77,7 @@ export default {
             function() {
                 let a = document.documentElement.offsetHeight;
                 let b = document.documentElement.scrollTop;
-                _this.scrollpst = Math.sqrt(b / a) * 150;
+                _this.scrollpst = (1 - Math.sqrt(b / a)) * 100;
             },
             false
         );
@@ -92,33 +92,34 @@ export default {
     margin: 10px auto;
 }
 .wrap {
-    margin: 0px 0px 10px;
+    margin: 0px auto 10px;
     max-width: 600px;
-    width: 100%;
+    width: 90%;
     position: relative;
     background-repeat: no-repeat;
 }
 @media (max-width: 768px) {
     .wrap {
-        padding-bottom: 90%;
+        padding-bottom: 75%;
         background-size: 180%;
     }
 }
 @media (min-width: 768px) {
     .wrap {
         padding-bottom: 35%;
-        background-size: 150%;
+        background-size: 100%;
     }
 }
 .title {
     position: absolute;
     height: 60px;
     width: 100%;
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(245, 236, 239);
     box-sizing: border-box;
     padding-left: 10px;
     font-size: 20px;
     line-height: 40px;
+    color: gray;
 }
 .cover {
     position: absolute;
@@ -128,14 +129,14 @@ export default {
     background: linear-gradient(
         to bottom,
         rgba(255, 255, 255, 0),
-        rgba(0, 0, 0, 0.555)
+        rgba(184, 72, 109, 0.541)
     );
     color: white;
     font-size: 16px;
     box-sizing: border-box;
     padding: 10px;
 }
-.cover p{
+.cover p {
     position: absolute;
     bottom: 10px;
 }
@@ -144,16 +145,16 @@ export default {
     bottom: 0px;
     height: 40px;
     width: 100%;
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(245, 236, 239);
     box-sizing: border-box;
     padding-top: 10px;
 }
-.bottom span{
+.bottom span {
     display: inline-block;
-    background-color: rgb(117, 116, 116);
+    background-color: palevioletred;;
     color: white;
     margin-left: 10px;
-    padding:0px 5px;
+    padding: 0px 5px;
     border-radius: 5px;
 }
 </style>

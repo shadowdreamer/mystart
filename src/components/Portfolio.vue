@@ -1,5 +1,9 @@
 <template>
-    <div class="portfolio"></div>
+    <div class="portfolio">
+        <div class="wrap">
+
+        </div>
+    </div>
 </template>
 <script>
 export default {
@@ -15,5 +19,8 @@ export default {
     margin: 0px auto 5px;
     padding-top: 40px;
     overflow: hidden;
+    }
+    .li{
+
     }
 </style>

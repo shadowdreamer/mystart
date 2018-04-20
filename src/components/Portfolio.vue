@@ -1,7 +1,7 @@
 <template>
     <div class="portfolio">
         <div class="wrap">
-            <button @click="te">666</button>
+                <div class = "" v-for="item in test" :key="item.index">{{item.title}}</div>
         </div>
     </div>
 </template>
@@ -9,20 +9,17 @@
 export default {
     data() {
         return {
-            test: [
-                {
-                    title: "标题1",
-                    img: "../static/timeline/1.jpg",
-                    abstract: "截图截图截图",
-                    tag: ["sreenshoot", "game"]
-                },
-            ]
+            test: []
         };
     },
+    created(){
+        this.$http.get('../static/data/testdata.json').then(res=>{
+            this.test = res.data.timeline
+        }).catch(err=>{
+            console.log(err)
+        })
+    },
     methods:{
-        te:function(){
-            console.log(this)
-        }
     }
 };
 </script>
@@ -36,6 +33,11 @@ export default {
     padding-top: 40px;
     overflow: hidden;
 }
-.li {
+.wrap {
+    display: flex;
+    flex-direction: column;
+}
+.wrap div{
+
 }
 </style>

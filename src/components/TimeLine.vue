@@ -1,6 +1,6 @@
 <template>
     <div class="timeline">
-        <div class="wrap" v-for="item in testdata" :key='item.id' :style="{ 'background-image': 'url(' + item.img + ')','background-position': 'center '+ scrollpst +'%'}">
+        <div class="wrap" v-for="item in testdata" :key='item.id' @click="opened = !opened" :style="{ 'background-image': 'url(' + item.img + ')','background-position': 'center '+ scrollpst +'%'}">
             <div class="title">{{item.title}}</div>
             <div class="cover">
                 <p>
@@ -11,64 +11,45 @@
                 <span v-for="tag in item.tag" :key=tag>{{tag}}</span>
             </div>
         </div>
+        <div class="backface" v-show="opened" @click="opened = false"></div>
+            <div class="article" v-show="opened" >
+                <div class="closebtn" @click="opened = false">X</div>
+                <div class="main" v-html="markdown_html"></div>
+            </div>
+
     </div>
 </template>
 <script>
 export default {
     data() {
         return {
-            testdata: [
-                {
-                    title: "标题1",
-                    img: "../static/timeline/1.jpg",
-                    abstract: "截图截图截图",
-                    tag: ["sreenshoot", "game"]
-                },
-                {
-                    title: "标题2",
-                    img: "../static/timeline/2.jpg",
-                    abstract: "截图截图截图",
-                    tag: ["sreenshoot", "idol"]
-                },
-                {
-                    title: "标题3",
-                    img: "../static/timeline/3.jpg",
-                    abstract: "截图截图截图",
-                    tag: ["sreenshoot", "idol"]
-                },
-                {
-                    title: "标题4",
-                    img: "../static/timeline/4.jpg",
-                    abstract: "截图截图截图",
-                    tag: ["sreenshoot", "game"]
-                },
-                {
-                    title: "标题1",
-                    img: "../static/timeline/1.jpg",
-                    abstract: "截图截图截图",
-                    tag: ["sreenshoot", "idol"]
-                },
-                {
-                    title: "标题2",
-                    img: "../static/timeline/2.jpg",
-                    abstract: "截图截图截图",
-                    tag: ["sreenshoot", "idol"]
-                },
-                {
-                    title: "标题3",
-                    img: "../static/timeline/3.jpg",
-                    abstract: "截图截图截图",
-                    tag: ["sreenshoot", "game"]
-                },
-                {
-                    title: "标题4",
-                    img: "../static/timeline/4.jpg",
-                    abstract: "截图截图截图",
-                    tag: ["sreenshoot", "game"]
-                }
-            ],
-            scrollpst: 0
+            testdata: [],
+            scrollpst: 0,
+            opened: false,
+            markdown_text:'',
+            markdown_html:'',
         };
+    },
+    created() {
+        this.$http
+            .get("../static/data/testdata.json")
+            .then(res => {
+                this.testdata = res.data.timeline;
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        this.$http
+            .get("../static/data/README.md")
+            .then(res => {
+                this.markdown_text = res.data;
+                this.markdown_html = this.parser.makeHtml(this.markdown_text);
+
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
     },
     mounted() {
         var _this = this;
@@ -81,9 +62,7 @@ export default {
             },
             false
         );
-    },
-
-    components: {}
+    }
 };
 </script>
 <style scoped>
@@ -156,6 +135,35 @@ export default {
     margin-left: 10px;
     padding: 0px 5px;
     border-radius: 5px;
+}
+.backface {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.596);
+    z-index: 19;
+}
+.article {
+    position: fixed;
+    max-width: 999px;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    margin: 0px auto;
+    border: 1px #999 solid;
+    background: white;
+    z-index: 20;
+    overflow: scroll;
+}
+.closebtn {
+    float: right;
+    top: 10px;
+    right: 10px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
 }
 </style>
 

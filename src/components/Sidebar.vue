@@ -18,7 +18,7 @@ export default {
     position: fixed;
     bottom: 38px;
     right: 38px;
-    z-index: 9;
+    z-index: 99;
 }
 .btn {
     height: 60px;

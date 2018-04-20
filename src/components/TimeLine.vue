@@ -151,7 +151,7 @@ export default {
 }
 .bottom span {
     display: inline-block;
-    background-color: palevioletred;;
+    background-color: palevioletred;
     color: white;
     margin-left: 10px;
     padding: 0px 5px;

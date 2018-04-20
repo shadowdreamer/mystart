@@ -6,7 +6,6 @@ import About from '@/components/About'
 import Portfolio from '@/components/Portfolio'
 
 Vue.use(Router)
-
 export default new Router({
     routes: [
         {

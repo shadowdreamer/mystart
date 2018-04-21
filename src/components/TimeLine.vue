@@ -1,10 +1,11 @@
 <template>
     <div class="timeline">
-        <div class="wrap" v-for="item in testdata" :key='item.id' @click="opened = !opened" :style="{ 'background-image': 'url(' + item.img + ')','background-position': 'center '+ scrollpst +'%'}">
-            <div class="title">{{item.title}}</div>
+        <div class="wrap" v-for="item in data" :key='item.id' @click="handle(item)"
+        :style="{ 'background-image': 'url(' + item.headpic + ')','background-position': 'center '+ scrollpst +'%'}">
+            <div class="title">{{item.title}}<br/><small>{{item.timestamp | datemodify}}</small></div>
             <div class="cover">
                 <p>
-                    {{item.abstract}}
+                    {{item.des}}
                 </p>
             </div>
             <div class="bottom">
@@ -12,44 +13,34 @@
             </div>
         </div>
         <div class="backface" v-show="opened" @click="opened = false"></div>
-            <div class="article" v-show="opened" >
-                <div class="closebtn" @click="opened = false">X</div>
-                <div class="main" v-html="markdown_html"></div>
-            </div>
+        <div class="article" v-show="opened">
+            <div class="closebtn" @click="opened = false">X</div>
+            <MarkDown :source="markdown_html"></MarkDown>
+        </div>
 
     </div>
 </template>
 <script>
+import MarkDown from 'vue-markdown'
 export default {
     data() {
         return {
-            testdata: [],
+            data: [],
             scrollpst: 0,
             opened: false,
-            markdown_text:'',
-            markdown_html:'',
+            markdown_html: ""
         };
     },
     created() {
         this.$http
-            .get("../static/data/testdata.json")
+            .get("../static/data/timeline.json")
             .then(res => {
-                this.testdata = res.data.timeline;
+                // console.log(res);
+                this.data = res.data.data;
             })
             .catch(err => {
                 console.log(err);
-            });
-        this.$http
-            .get("../static/data/README.md")
-            .then(res => {
-                this.markdown_text = res.data;
-                this.markdown_html = this.parser.makeHtml(this.markdown_text);
-
             })
-            .catch(err => {
-                console.log(err);
-            });
-
     },
     mounted() {
         var _this = this;
@@ -62,6 +53,40 @@ export default {
             },
             false
         );
+    },
+    methods:{
+        handle:function(obj){
+            this.opened = true;
+            var time = new Date(obj.timestamp);
+            var getTime = function(){
+                return time.getFullYear() + '-' + (time.getMonth()+1) + '-' + time.getDate();
+            }
+            this.$http.get("../static/article/"+ getTime() + ".md")
+                .then(res=>{
+                    this.markdown_html = res.data
+                })
+        }
+    },
+    components:{
+        MarkDown
+    },
+    filters:{
+        datemodify(val){
+            var now = new Date();
+            var stamp = new Date(val);
+            var tmp = now.getTime() - stamp.getTime();
+            var time = new Date(tmp)
+            if(tmp < 3600000){
+                return '发表于' + time.getUTCMinutes() +'分钟前'
+            }else if(tmp < 86400000){
+                return '发表于' + time.getUTCHours() +'小时前'
+            }else if(tmp < 864000000){
+                return '发表于' + (time.getUTCDate() - 1) + '天前'
+            }else{
+                return '发表于'+ val.getFullYear() + '.' + (val.getMonth()+1) + '.' + val.getDate()
+            }
+
+        }
     }
 };
 </script>
@@ -98,7 +123,12 @@ export default {
     padding-left: 10px;
     font-size: 20px;
     line-height: 40px;
+    color: rgb(56, 56, 56);
+}
+.title small{
+    position: relative;
     color: gray;
+    top:-15px;
 }
 .cover {
     position: absolute;
@@ -155,7 +185,8 @@ export default {
     border: 1px #999 solid;
     background: white;
     z-index: 20;
-    overflow: scroll;
+    overflow: auto;
+    overflow-x: hidden;
 }
 .closebtn {
     float: right;

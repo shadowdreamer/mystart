@@ -1,5 +1,5 @@
 <template>
-    <div v-once>
+    <div>
         <div class="zhanwei"></div>
         <transition name='footer'>
             <footer v-show="showfoot">

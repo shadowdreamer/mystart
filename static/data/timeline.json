@@ -8,6 +8,13 @@
             "des":"我的第一篇博客",
             "headpic":"http://wx2.sinaimg.cn/large/69924d1bgy1fqkeksozayj20zk0k07wh.jpg",
             "tag":["Blog"]
+        },
+        {
+            "timestamp":1524387313450,
+            "title":"第二篇博客",
+            "des":"vue.$route和doucument.location",
+            "headpic":"http://wx4.sinaimg.cn/large/69924d1bgy1fqlkaouauvj20zk0k0wmw.jpg",
+            "tag":["Blog","router"]
         }
     ]
 }

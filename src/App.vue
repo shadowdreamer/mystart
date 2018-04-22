@@ -1,7 +1,6 @@
 <template>
-    <div id="app">
+    <div id="app" >
         <myNav></myNav>
-
         <transition name='content'>
             <router-view/>
         </transition>

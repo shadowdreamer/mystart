@@ -1,7 +1,6 @@
 <template>
     <div class="timeline">
-        <div class="wrap" v-for="item in data" :key='item.id'
-        :style="{ 'background-image': 'url(' + item.headpic + ')','background-position': 'center '}">
+        <div class="wrap" v-for="item in data" :key='item.id' :style="{ 'background-image': 'url(' + item.headpic + ')','background-position': 'center '}">
             <div class="title">{{item.title}}<br/>
                 <small>{{item.timestamp | datemodify}}</small>
             </div>
@@ -19,10 +18,10 @@
 
             <div class="headpic" :style="{'background-image': 'url(' + headpic + ')'}">
                 <div class="headtitle">
-                   <div class="closebtn" @click="closemd"></div>
-                   <p>
-                      {{headtitle}}
-                   </p>
+                    <div class="closebtn" @click="closemd"></div>
+                    <p>
+                        {{headtitle}}
+                    </p>
 
                 </div>
             </div>
@@ -40,8 +39,8 @@ export default {
             scrollpst: 0,
             opened: false,
             markdown_html: "",
-            headpic:'',
-            headtitle:'',
+            headpic: "",
+            headtitle: "",
         };
     },
     created() {
@@ -54,8 +53,8 @@ export default {
             .catch(err => {
                 console.log(err);
             });
-        if(this.$route.query.md){
-            this.handle(this.$route.query.md)
+        if (this.$route.query.md) {
+            this.handle(this.$route.query.md);
         }
     },
     mounted() {
@@ -71,9 +70,9 @@ export default {
         // );
     },
     methods: {
-        getmd:function(stamp){
-            this.$router.push({query:{md:stamp}});
-            this.handle(stamp)
+        getmd: function(stamp) {
+            this.$router.push({ query: { md: stamp } });
+            this.handle(stamp);
         },
         handle: function(stamp) {
             this.opened = true;
@@ -86,21 +85,22 @@ export default {
                     "-" +
                     time.getDate()
                 );
-            };
+            }
             this.$http
                 .get("../static/article/" + getTime() + ".md")
-                .then(res=>{
+                .then(res => {
                     this.markdown_html = res.data;
-                    let obj = this.data.filter(ele=>{return ele.timestamp == stamp})[0];
+                    let obj = this.data.filter(ele => {
+                        return ele.timestamp == stamp;
+                    })[0];
                     this.headpic = obj.headpic;
                     this.headtitle = obj.title;
                 });
         },
-        closemd(){
+        closemd() {
             this.opened = false;
-            this.$router.push({query:{}})
+            this.$router.push({ query: {} });
         }
-
     },
     components: {
         MarkDown
@@ -217,21 +217,20 @@ export default {
     background-color: rgba(255, 255, 255, 0.5);
     z-index: 19;
 }
-.headpic{
+.headpic {
     height: 30%;
     background-repeat: no-repeat;
     background-position: top;
     background-size: 100%;
 }
-.headtitle{
+.headtitle {
     position: relative;
     height: 100%;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     overflow: hidden;
-
 }
-.headtitle p{
+.headtitle p {
     position: absolute;
     bottom: 30px;
     left: 20px;
@@ -249,9 +248,7 @@ export default {
     overflow: auto;
     overflow-x: hidden;
 }
-.markdown{
-    padding: 0px 22px;
-}
+
 .closebtn {
     position: fixed;
     right: 0px;
@@ -262,7 +259,202 @@ export default {
     border-bottom-left-radius: 60px;
     box-shadow: 3px 2px 20px gray;
     z-index: 99;
+}
 
+/* 以下为markdown */
+.markdown *{
+
+}
+.markdown{
+    color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1em;
+    margin: 5px auto;
+}
+
+.markdown a {
+    color: #0645ad;
+    text-decoration: none;
+}
+.markdown a:visited {
+    color: #0b0080;
+}
+.markdown a:hover {
+    color: #06e;
+}
+.markdown a:active {
+    color: #faa700;
+}
+.markdown a:focus {
+    outline: thin dotted;
+}
+.markdown a:hover,
+.markdown a:active {
+    outline: 0;
+}
+
+.markdown ::-moz-selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #000;
+}
+.markdown ::selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #000;
+}
+
+.markdown a::-moz-selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #0645ad;
+}
+.markdown a::selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #0645ad;
+}
+
+.markdown p {
+    margin: 1em 0;
+}
+
+.markdown img {
+    max-width: 100%;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    font-weight: normal;
+    color: #111;
+    line-height: 1em;
+}
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    font-weight: bold;
+}
+.markdown h1 {
+    font-size: 2.5em;
+}
+.markdown h2 {
+    font-size: 2em;
+}
+.markdown h3 {
+    font-size: 1.5em;
+}
+.markdown h4 {
+    font-size: 1.2em;
+}
+.markdown h5 {
+    font-size: 1em;
+}
+.markdown h6 {
+    font-size: 0.9em;
+}
+
+.markdown blockquote {
+    color: #666666;
+    margin: 0;
+    padding-left: 3em;
+    border-left: 0.5em #eee solid;
+}
+.markdown hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #eee;
+    margin: 1em 0;
+    padding: 0;
+}
+.markdown pre,
+.markdown code,
+.markdown kbd,
+.markdown samp {
+    color: #000;
+    font-family: monospace, monospace;
+    _font-family: "courier new", monospace;
+    font-size: 0.98em;
+}
+.markdown pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.markdown b,
+.markdown strong {
+    font-weight: bold;
+}
+
+.markdown dfn {
+    font-style: italic;
+}
+
+.markdown ins {
+    background: #ff9;
+    color: #000;
+    text-decoration: none;
+}
+
+.markdown mark {
+    background: #ff0;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.markdown sub,
+.markdown sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+.markdown sup {
+    top: -0.5em;
+}
+.markdown sub {
+    bottom: -0.25em;
+}
+
+.markdown ul,
+.markdown ol {
+    margin: 1em 0;
+    padding: 0 0 0 2em;
+}
+.markdown li p:last-child {
+    margin: 0;
+}
+.markdown dd {
+    margin: 0 0 0 2em;
+}
+
+.markdown img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+}
+
+.markdown table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.markdown td {
+    vertical-align: top;
+}
+
+@media only screen and (min-width: 480px) {
+    .markdown {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .markdown {
+        font-size: 16px;
+    }
 }
 </style>
 

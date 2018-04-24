@@ -7,6 +7,7 @@ import Portfolio from '@/components/Portfolio'
 
 Vue.use(Router)
 export default new Router({
+    mode: 'history',
     routes: [
         {
             path: '/',
@@ -36,7 +37,7 @@ export default new Router({
             if (window.scrollY < 160) {
                 return undefined
             } else {
-                return { x: 0, y: 161 }
+                return { x: 0, y: 160 }
             }
         }
     }

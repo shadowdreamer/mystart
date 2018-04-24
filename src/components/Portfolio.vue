@@ -1,7 +1,7 @@
 <template>
     <div class="portfolio">
         <div class="wrap">
-                <div class = "" v-for="item in test" :key="item.index">{{item.title}}</div>
+                <div class = "" v-for="item in test" :key="item.index">{{item.des}}</div>
         </div>
     </div>
 </template>
@@ -13,8 +13,8 @@ export default {
         };
     },
     created(){
-        this.$http.get('../static/data/testdata.json').then(res=>{
-            this.test = res.data.timeline
+        this.$http.get('../static/data/timeline.json').then(res=>{
+            this.test = res.data.data
         }).catch(err=>{
             console.log(err)
         })

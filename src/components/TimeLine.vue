@@ -2,7 +2,7 @@
     <div class="timeline">
         <div class="wrap" v-for="item in data" :key='item.id' :style="{ 'background-image': 'url(' + item.headpic + ')','background-position': 'center '}">
             <div class="title">{{item.title}}<br/>
-                <small>{{item.timestamp | datemodify}}</small>
+                <small>{{item.timestamp | dateModify}}</small>
             </div>
             <div class="cover" @click="getmd(item.timestamp)">
                 <p>
@@ -31,7 +31,8 @@
     </div>
 </template>
 <script>
-import MarkDown from "vue-markdown";
+import MarkDown from "vue-markdown"
+
 export default {
     data() {
         return {
@@ -56,18 +57,6 @@ export default {
         if (this.$route.query.md) {
             this.handle(this.$route.query.md);
         }
-    },
-    mounted() {
-        // var _this = this;
-        // window.addEventListener(
-        //     "scroll",
-        //     function() {
-        //         let a = document.documentElement.offsetHeight;
-        //         let b = document.documentElement.scrollTop;
-        //         _this.scrollpst = (1 - Math.sqrt(b / a)) * 100;
-        //     },
-        //     false
-        // );
     },
     methods: {
         getmd: function(stamp) {
@@ -105,30 +94,6 @@ export default {
     components: {
         MarkDown
     },
-    filters: {
-        datemodify(val) {
-            var now = new Date();
-            var stamp = new Date(val);
-            var tmp = now.getTime() - stamp.getTime();
-            var time = new Date(tmp);
-            if (tmp < 3600000) {
-                return "发表于" + time.getUTCMinutes() + "分钟前";
-            } else if (tmp < 86400000) {
-                return "发表于" + time.getUTCHours() + "小时前";
-            } else if (tmp < 864000000) {
-                return "发表于" + (time.getUTCDate() - 1) + "天前";
-            } else {
-                return (
-                    "发表于" +
-                    val.getFullYear() +
-                    "." +
-                    (val.getMonth() + 1) +
-                    "." +
-                    val.getDate()
-                );
-            }
-        }
-    }
 };
 </script>
 <style scoped>
@@ -143,16 +108,22 @@ export default {
     position: relative;
     background-repeat: no-repeat;
 }
-@media (max-width: 768px) {
+@media (max-width: 999px) {
     .wrap {
-        padding-bottom: 75%;
-        background-size: 180%;
+        padding-bottom: 60%;
+        background-size: 100%;
+    }
+    .markdown{
+        width: 100vw;
     }
 }
-@media (min-width: 768px) {
+@media (min-width: 999px) {
     .wrap {
         padding-bottom: 35%;
         background-size: 100%;
+    }
+    .markdown{
+        width: 100vw
     }
 }
 .title {
@@ -214,13 +185,13 @@ export default {
     right: 0px;
     height: 100%;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 19;
 }
 .headpic {
     height: 30%;
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: center;
     background-size: 100%;
 }
 .headtitle {
@@ -239,7 +210,7 @@ export default {
 .article {
     position: fixed;
     max-width: 999px;
-    height: 100%;
+    height: 100vh;
     top: 0px;
     margin: 0px auto;
     border: 1px #999 solid;
@@ -262,13 +233,10 @@ export default {
 }
 
 /* 以下为markdown */
-.markdown *{
-
-}
 .markdown{
     color: #444;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 1em;
+    /* padding: 1em; */
     margin: 5px auto;
 }
 

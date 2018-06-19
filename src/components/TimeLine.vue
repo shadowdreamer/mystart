@@ -67,6 +67,7 @@ export default {
             this.opened = true;
             var time = new Date(+stamp);
             function getTime() {
+
                 return (
                     time.getFullYear() +
                     "-" +
@@ -107,6 +108,8 @@ export default {
     width: 90%;
     position: relative;
     background-repeat: no-repeat;
+
+
 }
 @media (max-width: 999px) {
     .wrap {

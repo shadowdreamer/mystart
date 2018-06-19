@@ -50,7 +50,7 @@ p {
     font-family: inherit;
 }
 .bodyfix{
-    position: fixed;
+    position: absolute;
     overflow: auto;
     height: 100vh;
     width: 100vw

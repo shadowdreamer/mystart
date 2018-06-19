@@ -9,6 +9,7 @@ import filters from './filters'
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+Vue.prototype.$store = store
 
 Object.keys(filters).forEach(key=>{Vue.filter(key,filters[key])})
 
@@ -16,7 +17,6 @@ Object.keys(filters).forEach(key=>{Vue.filter(key,filters[key])})
 new Vue({
     el: '#app',
     router,
-    store,
     components: { App },
     template: '<App/>',
 })

@@ -5,6 +5,11 @@ Vue.use(Vuex)
 
 export default  new Vuex.Store({
     state:{
-        bodyFix:false
+        appealIndex:-1,
+    },
+    mutations:{
+        changeAppeal(state){
+            state.appealIndex++
+        }
     }
 })

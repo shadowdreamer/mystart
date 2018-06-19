@@ -10,7 +10,7 @@ export default function (val) {
     } else if (tmp < 864000000) {
         return "发表于" + (time.getUTCDate() - 1) + "天前";
     } else {
-        return "发表于" + val.getFullYear() + "." + (val.getMonth() + 1) + "." + val.getDate()
+        return "发表于" + stamp.getFullYear() + "." + (stamp.getMonth() + 1) + "." + stamp.getDate()
 
     }
 }

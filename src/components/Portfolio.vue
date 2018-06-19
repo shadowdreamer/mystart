@@ -1,11 +1,14 @@
 <template>
     <div class="portfolio">
-        <div class="wrap">
-                <div class = "" v-for="item in test" :key="item.index">{{item.des}}</div>
-        </div>
+
+                <div class="wrap">
+                    <port-item :list = 'item' v-for="item in test" :key="item.index"  class = "items"  ></port-item>
+                </div>
+                <button @click="appeal()">test</button>
     </div>
 </template>
 <script>
+import PortItem from './PortItem'
 export default {
     data() {
         return {
@@ -20,24 +23,35 @@ export default {
         })
     },
     methods:{
+        appeal(index){
+           this.$store.commit('changeAppeal')
+        }
+    },
+    components:{
+        PortItem
     }
 };
 </script>
 <style scoped>
 .portfolio {
-    background-color: white;
-    max-width: 999px;
-    height: 1000px;
-    box-shadow: 1px 1px 3px gray;
+    /* border: 1px red solid; */
+    max-width: 1080px;
     margin: 0px auto 5px;
-    padding-top: 40px;
-    overflow: hidden;
+    padding: 40px 10px 0px;
+    text-align: center;
 }
+
 .wrap {
+    max-width: 999px;
+    margin: 0px auto 5px;
+
+    /* border: green solid 1px; */
     display: flex;
-    flex-direction: column;
+    /* justify-content:space-around; */
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
-.wrap div{
+.items{
 
 }
 </style>
